@@ -1,0 +1,40 @@
+import java.io.*;
+import java.util.*;
+import java.lang.*;
+class Main {
+  public static boolean checkval(char s,String h)
+  {
+    int j;
+    char[] bb=h.toCharArray();
+    for(j=0;j<bb.length;j++)
+    {
+      if(s==bb[j])
+      return false;
+    }
+    return true;
+  }
+  public static void main(String[] args) throws Exception {
+    BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+    int i,max=0;
+    String inp=br.readLine();
+    String d="";
+    char[] inp1=inp.toCharArray();
+    for(i=0;i<inp1.length;)
+    {
+      if(checkval(inp1[i],d))
+      {
+      d=d+inp1[i];
+      i++;
+      }
+      else
+      {
+      d="";
+      i=i-2;
+      }
+      if(d.length()>max)
+      max=d.length();
+
+    }
+    System.out.println(max);
+  }
+}
